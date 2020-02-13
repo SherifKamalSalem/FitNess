@@ -2,10 +2,9 @@
 
  //  Created by Sherif Kamal on 1/16/20.
  //  Copyright © 2020 Sherif Kamal. All rights reserved.
- // XCTest
-@testable  //  Created by Sherif Kamal on 1/16/20.
- //  Copyright © 2020 Sherif Kamal. All rights reserved.
- // FitNess
+
+import XCTest
+@testable import FitNess
 
 class AppModelTests: XCTestCase {
 
