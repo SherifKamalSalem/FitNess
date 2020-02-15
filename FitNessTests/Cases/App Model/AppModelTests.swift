@@ -9,10 +9,12 @@ import XCTest
 class AppModelTests: XCTestCase {
 
   var sut: AppModel!
-
+  var mockPedometer: MockPedometer!
+  
   override func setUp() {
     super.setUp()
-    sut = AppModel()
+    mockPedometer = MockPedometer()
+    sut = AppModel(pedometer: mockPedometer)
   }
 
   override func tearDown() {
@@ -171,5 +173,11 @@ class AppModelTests: XCTestCase {
     // then
     wait(for: [expected], timeout: 1)
     XCTAssertEqual(observedState, .paused)
+  }
+  
+  func testAppModel_whenStarted_startsPedometer() {
+    givenGoalSet()
+    try! sut.start()
+    XCTAssertTrue(mockPedometer.started)
   }
 }
